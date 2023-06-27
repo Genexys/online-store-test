@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { RootState } from '@/store';
-import { addToCart, increaseAmount, decreaseAmount } from '@/store/cartSlice';
+import { replaceCartItems, addToCart, increaseAmount, decreaseAmount } from '@/store/cartSlice';
 import ProductCard from '@/components/ProductCard';
 import ProductList from '@/components/ProductList';
 import { Product } from '@/data';
@@ -16,26 +16,6 @@ const Home = () => {
   const dispatch = useDispatch();
 
   const renderProducts = () => {
-    const handleAddToCartClick = (product: Product) => {
-      const productToAdd = { ...product, amount: 1 };
-      dispatch(addToCart(productToAdd));
-    };
-
-    useEffect(() => {
-      const savedCart = localStorage.getItem('cart');
-      if (savedCart) {
-        JSON.parse(savedCart).forEach((item: Product) => {
-          dispatch(addToCart(item));
-        });
-
-        setCartItemsStorage(JSON.parse(savedCart));
-      }
-    }, []);
-
-    useEffect(() => {
-      localStorage.setItem('cart', JSON.stringify(cartItems));
-    }, [cartItems]);
-
     return productItems.map((product) => {
       const amountInCart = productItemsCart.find((item) => item.id === product.id);
       const amount = amountInCart ? amountInCart.amount : 0;
@@ -56,6 +36,24 @@ const Home = () => {
       );
     });
   };
+
+  const handleAddToCartClick = useCallback((product: Product) => {
+    const productToAdd = { ...product, amount: 1 };
+    dispatch(addToCart(productToAdd));
+  }, []);
+
+  useEffect(() => {
+    const savedCart = localStorage.getItem('cart');
+    if (savedCart) {
+      const savedItems = JSON.parse(savedCart);
+      dispatch(replaceCartItems(savedItems));
+      setCartItemsStorage(savedItems);
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem('cart', JSON.stringify(cartItems));
+  }, [cartItems]);
 
   return (
     <>
