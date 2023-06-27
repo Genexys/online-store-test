@@ -9,7 +9,6 @@ import { Product } from '@/data';
 import styles from '../../components/global.css';
 
 const Home = () => {
-  const [cartItemsStorage, setCartItemsStorage] = useState<Product[]>([]);
   const cartItems = useSelector((state: RootState) => state.cart.items);
   const productItems = useSelector((state: RootState) => state.products.products);
   const productItemsCart = useSelector((state: RootState) => state.cart.items);
@@ -47,7 +46,6 @@ const Home = () => {
     if (savedCart) {
       const savedItems = JSON.parse(savedCart);
       dispatch(replaceCartItems(savedItems));
-      setCartItemsStorage(savedItems);
     }
   }, []);
 
