@@ -1,0 +1,127 @@
+.card {
+  width: 400px;
+  height: 250px;
+  position: relative;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  color: #000;
+}
+
+.front,
+.back {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  backface-visibility: hidden;
+  border-radius: 15px;
+  padding: 20px;
+  box-sizing: border-box;
+  color: white;
+  font-size: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.front {
+  background: linear-gradient(45deg, #fd5166, #8134ff);
+}
+
+.back {
+  background: linear-gradient(225deg, #fd5166, #8134ff);
+  transform: rotateY(180deg);
+}
+
+.flipped {
+  transform: rotateY(180deg);
+}
+
+.number {
+  position: absolute;
+  top: 103px;
+  left: 19px;
+  width: calc(100% - 38px);
+  height: 47px;
+  margin: 0 auto;
+  font-size: 38px;
+}
+
+.number.selected {
+  border: 2px solid #ffdd55;
+  box-shadow: 0 0 10px #ffdd55;
+  transition: border 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cardHolder {
+  font-size: 10px;
+  letter-spacing: 1px;
+  text-shadow: none;
+  text-transform: uppercase;
+  font-weight: normal;
+  opacity: 0.5;
+  display: block;
+  margin-bottom: 3px;
+}
+
+.name {
+  position: absolute;
+  margin: 0 auto;
+  width: calc(100% - 110px);
+  top: 180px;
+  left: 19px;
+  font-size: 22px;
+  text-transform: capitalize;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.name.selected .cardHolder {
+  color: #ffdd55;
+}
+
+.expiry {
+  position: absolute;
+  margin: 0 auto;
+  top: 180px;
+  font-size: 22px;
+  text-transform: capitalize;
+  text-align: right;
+  right: 20px;
+}
+
+.expiry.selected .date {
+  color: #ffdd55;
+}
+
+.date {
+  font-size: 10px;
+  letter-spacing: 1px;
+  text-shadow: none;
+  text-transform: uppercase;
+  font-weight: normal;
+  opacity: 0.5;
+  display: block;
+  margin-bottom: 3px;
+}
+
+.cvc {
+  height: 36px;
+  background: #fff;
+  width: 91%;
+  border-radius: 5px;
+  top: 110px;
+  left: 0;
+  right: 0;
+  position: absolute;
+  margin: 0 auto;
+  color: #000;
+  text-align: right;
+  padding: 7px;
+}
+
+.cvc.selected {
+  border: 2px solid #ffdd55;
+  box-shadow: 0 0 10px #ffdd55;
+  transition: border 0.3s ease, box-shadow 0.3s ease;
+}

@@ -1,0 +1,50 @@
+.wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.list {
+  width: 68%;
+}
+
+.total {
+  position: sticky;
+  top: 10px;
+  width: 30%;
+}
+
+.totalTitle {
+  margin: 0;
+  padding: 0.23em 0.4em;
+  border: 1px solid var(--border-color);
+  background-color: var(--secondary-color);
+  color: #fff;
+}
+
+.totalInner {
+  border: 1px solid var(--border-color);
+  margin-bottom: 2em;
+  padding: 0 20px;
+}
+
+.totalPrice {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.checkoutButton {
+  width: 100%;
+  height: 50px;
+  border: none;
+  background-color: var(--primary-color);
+  color: #fff;
+  font-size: 20px;
+  cursor: pointer;
+  transition: opacity 0.2s linear;
+}
+
+.checkoutButton:hover {
+  opacity: 0.8;
+}

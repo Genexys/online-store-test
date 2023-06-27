@@ -1,0 +1,54 @@
+:root {
+  --primary-color: #093d65;
+  --secondary-color: #f98e54;
+  --primary-font-color: #242424;
+  --border-color: #dddddd;
+}
+
+@font-face {
+  font-family: 'poppins_medium';
+  src: url('../../assets/fonts/poppins_medium-webfont.woff2') format('woff2'),
+    url('../../assets/fonts/poppins_medium-webfont.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'JosefinSans-Light';
+  src: url('../../assets/fonts/JosefinSans-Light.woff2') format('woff2'),
+    url('../../assets/fonts/JosefinSans-Light.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'JosefinSans-Light', sans-serif;
+  color: var(--primary-font-color);
+}
+
+.title {
+  font-size: 50px;
+  font-weight: 700;
+  margin-bottom: 50px;
+}
+
+.screenReaderText {
+  border: 0;
+  clip: rect(1px, 1px, 1px, 1px);
+  clip-path: inset(50%);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+  word-wrap: normal !important;
+}

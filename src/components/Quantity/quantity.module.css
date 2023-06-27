@@ -1,0 +1,48 @@
+.quantity {
+  display: flex;
+}
+
+.input {
+  max-width: 58px;
+  min-height: 35px;
+  width: 2.631em;
+  padding: 0.3em;
+  text-align: center;
+  border: 1px solid var(--border-color);
+  background-color: #fff;
+  box-shadow: none;
+  border-radius: 0;
+  outline: none;
+  -webkit-appearance: none;
+  -moz-appearance: textfield;
+}
+
+.input:focus {
+}
+
+.input::-webkit-outer-spin-button,
+.input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.button {
+  width: 38px;
+  display: flex;
+  justify-content: center;
+  background-color: transparent;
+  border: 1px solid var(--border-color);
+  color: var(--primary-color);
+  align-items: center;
+  outline: 0;
+  font-weight: 400;
+  cursor: pointer;
+}
+
+.minus {
+  border-right: none;
+}
+
+.plus {
+  border-left: none;
+}
