@@ -3,10 +3,12 @@ import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 
 interface ProductState {
   products: Product[];
+  filteredProducts: Product[];
 }
 
 const initialState: ProductState = {
   products: products,
+  filteredProducts: products,
 };
 
 const productsSlice = createSlice({
@@ -18,26 +20,45 @@ const productsSlice = createSlice({
     },
     sortProducts: (state, action) => {
       const sortType = action.payload;
-      console.log('🚀 ~ file: productsSlice.ts:21 ~ sortType:', sortType);
 
       switch (sortType) {
         case 'price-asc':
           return {
             ...state,
-            products: [...state.products].sort((a, b) => a.price - b.price),
+            filteredProducts: [...state.filteredProducts].sort((a, b) => a.price - b.price),
           };
         case 'price-desc':
           return {
             ...state,
-            products: [...state.products].sort((a, b) => b.price - a.price),
+            filteredProducts: [...state.filteredProducts].sort((a, b) => b.price - a.price),
           };
         default:
           return state;
       }
     },
+    filterByCharacteristic: (
+      state,
+      action: PayloadAction<{ characteristic: string; value: string | number | boolean }>
+    ) => {
+      const { characteristic, value } = action.payload;
+
+      if (state.filteredProducts.length < state.products.length) {
+        state.filteredProducts = state.filteredProducts.filter(
+          (product) => product.characteristic[characteristic] === value
+        );
+      } else {
+        state.filteredProducts = state.products.filter(
+          (product) => product.characteristic[characteristic] === value
+        );
+      }
+    },
+    resetFilters: (state) => {
+      state.filteredProducts = state.products;
+    },
   },
 });
 
-export const { addProduct, sortProducts } = productsSlice.actions;
+export const { addProduct, sortProducts, filterByCharacteristic, resetFilters } =
+  productsSlice.actions;
 
 export default productsSlice.reducer;

@@ -1,0 +1,20 @@
+.title {
+  font-family: 'Poppins', sans-serif;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.button {
+  margin-top: 20px;
+  width: 100px;
+  padding: 10px;
+  border: 1px solid var(--border-color);
+  border-radius: 5px;
+  background-color: var(--secondary-color);
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.button:hover {
+  background-color: var(--primary-color);
+}

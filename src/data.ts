@@ -1,3 +1,5 @@
+type characteristic = string | number | boolean;
+
 export interface Product {
   id: number;
   title: string;
@@ -5,6 +7,7 @@ export interface Product {
   description: string;
   price: number;
   amount: number;
+  characteristic: Record<string, characteristic>;
 }
 
 const products: Product[] = [
@@ -15,6 +18,10 @@ const products: Product[] = [
     description: 'This is product 1123',
     price: 1000,
     amount: 0,
+    characteristic: {
+      color: 'red',
+      coolness: true,
+    },
   },
   {
     id: 1,
@@ -23,6 +30,10 @@ const products: Product[] = [
     src: 'https://placehold.co/200x200',
     price: 100,
     amount: 0,
+    characteristic: {
+      color: 'red',
+      coolness: false,
+    },
   },
   {
     id: 2,
@@ -31,6 +42,10 @@ const products: Product[] = [
     src: 'https://placehold.co/200x200',
     price: 200,
     amount: 0,
+    characteristic: {
+      color: 'green',
+      coolness: true,
+    },
   },
   {
     id: 3,
@@ -39,6 +54,10 @@ const products: Product[] = [
     src: 'https://placehold.co/200x200',
     price: 300,
     amount: 0,
+    characteristic: {
+      color: 'blue',
+      coolness: false,
+    },
   },
 ];
 

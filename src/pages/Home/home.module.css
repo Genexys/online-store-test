@@ -1,4 +1,16 @@
-.filters {
+.wrapper {
+  display: flex;
+}
+
+.formWrapper {
+  position: sticky;
+  top: 10px;
+  max-width: 300px;
+  width: 100%;
+  padding-right: 40px;
+}
+
+.topFilters {
   display: flex;
   margin-bottom: 30px;
 }
@@ -11,4 +23,15 @@
 .sortPrice {
   max-width: 200px;
   width: 100%;
+}
+
+@media screen and (max-width: 800px) {
+  .formWrapper {
+    position: relative;
+    margin-bottom: 30px;
+  }
+
+  .wrapper {
+    flex-direction: column;
+  }
 }

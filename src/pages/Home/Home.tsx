@@ -6,6 +6,7 @@ import { sortProducts } from '@/store/productsSlice';
 import ProductCard from '@/components/ProductCard';
 import ProductList from '@/components/ProductList';
 import CustomSelect from '@/components/Select';
+import FormFilter from '@/components/FormFilter';
 import type { Product } from '@/data';
 
 import { sortingOptions } from '@/constants/sortingOptions';
@@ -17,6 +18,7 @@ const Home = () => {
   const [sort, setSort] = useState(sortingOptions[0].value);
   const cartItems = useSelector((state: RootState) => state.cart.items);
   const productItems = useSelector((state: RootState) => state.products.products);
+  const productItemsFiltered = useSelector((state: RootState) => state.products.filteredProducts);
   const productItemsCart = useSelector((state: RootState) => state.cart.items);
   const dispatch = useDispatch();
 
@@ -26,7 +28,7 @@ const Home = () => {
   };
 
   const renderProducts = () => {
-    return productItems.map((product) => {
+    return productItemsFiltered.map((product) => {
       const amountInCart = productItemsCart.find((item) => item.id === product.id);
       const amount = amountInCart ? amountInCart.amount : 0;
 
@@ -67,17 +69,24 @@ const Home = () => {
   return (
     <>
       <h1 className={global.title}>Products</h1>
-      <div className={styles.filters}>
-        <div className={styles.sortPrice}>
-          <span className={styles.filterTitle}>Sort</span>
-          <CustomSelect
-            options={sortingOptions}
-            selectedOption={sort}
-            handleSelect={handleSortChange}
-          />
+      <div className={styles.wrapper}>
+        <div className={styles.formWrapper}>
+          <FormFilter products={productItems} />
+        </div>
+        <div className={styles.products}>
+          <div className={styles.topFilters}>
+            <div className={styles.sortPrice}>
+              <span className={styles.filterTitle}>Sort</span>
+              <CustomSelect
+                options={sortingOptions}
+                selectedOption={sort}
+                handleSelect={handleSortChange}
+              />
+            </div>
+          </div>
+          <ProductList>{renderProducts()}</ProductList>
         </div>
       </div>
-      <ProductList>{renderProducts()}</ProductList>
     </>
   );
 };
