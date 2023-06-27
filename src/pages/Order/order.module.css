@@ -45,7 +45,8 @@
   padding: 10px 20px;
   border: none;
   border-radius: 5px;
-  background-color: #007bff;
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--secondary-color);
   color: white;
   cursor: pointer;
   font-size: 18px;
@@ -53,7 +54,7 @@
 }
 
 .submitButton:hover {
-  background-color: #0056b3;
+  background-color: var(--primary-color);
 }
 
 .errorMsg {

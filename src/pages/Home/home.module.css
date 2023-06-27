@@ -1,0 +1,14 @@
+.filters {
+  display: flex;
+  margin-bottom: 30px;
+}
+
+.filterTitle {
+  font-family: 'Poppins', sans-serif;
+  margin-bottom: 10px;
+}
+
+.sortPrice {
+  max-width: 200px;
+  width: 100%;
+}

@@ -40,7 +40,8 @@
 
 .price {
   font-size: 1.5rem;
-  font-weight: 700;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
   color: #333;
 }
 

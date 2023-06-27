@@ -5,38 +5,40 @@
   --border-color: #dddddd;
 }
 
-@font-face {
-  font-family: 'poppins_medium';
-  src: url('../../assets/fonts/poppins_medium-webfont.woff2') format('woff2'),
-    url('../../assets/fonts/poppins_medium-webfont.woff') format('woff');
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'JosefinSans-Light';
-  src: url('../../assets/fonts/JosefinSans-Light.woff2') format('woff2'),
-    url('../../assets/fonts/JosefinSans-Light.woff') format('woff');
-  font-weight: 300;
-  font-style: normal;
-  font-display: swap;
-}
-
 *,
 *::before,
 *::after {
   box-sizing: border-box;
 }
 
+@font-face {
+  font-family: 'Josefin Sans';
+  src: local('Josefin Sans'), url('../../assets/fonts/JosefinSans-Light.woff2') format('woff2'),
+    url('../../assets/fonts/JosefinSans-Light.woff2') format('woff');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Poppins';
+  src: local('Poppins'), url('../../assets/fonts/Poppins-Medium.woff2') format('woff2'),
+    url('../../assets/fonts/Poppins-Medium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
 body {
-  font-family: 'JosefinSans-Light', sans-serif;
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: 300;
   color: var(--primary-font-color);
 }
 
 .title {
   font-size: 50px;
-  font-weight: 700;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
   margin-bottom: 50px;
 }
 
