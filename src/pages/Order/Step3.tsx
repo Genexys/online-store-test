@@ -9,7 +9,7 @@ type MarkerType = { lat: number; lng: number } | undefined;
 
 const Step3: React.FC = () => {
   const { isLoaded, loadError } = useLoadScript({
-    googleMapsApiKey: 'AIzaSyDWzmRaB7koow1ppI2coU6CNZoIO-eyE-E',
+    googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY!,
     libraries: ['places'],
   });
 
