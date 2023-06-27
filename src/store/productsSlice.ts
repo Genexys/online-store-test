@@ -36,22 +36,16 @@ const productsSlice = createSlice({
           return state;
       }
     },
-    filterByCharacteristic: (
-      state,
-      action: PayloadAction<{ characteristic: string; value: string | number | boolean }>
-    ) => {
-      const { characteristic, value } = action.payload;
+    filterByCharacteristic: (state, action: PayloadAction<{ [key: string]: any }>) => {
+      const filters = action.payload;
 
-      if (state.filteredProducts.length < state.products.length) {
-        state.filteredProducts = state.filteredProducts.filter(
-          (product) => product.characteristic[characteristic] === value
-        );
-      } else {
-        state.filteredProducts = state.products.filter(
-          (product) => product.characteristic[characteristic] === value
-        );
-      }
+      state.filteredProducts = state.products.filter((product) =>
+        Object.keys(filters).every(
+          (key) => filters[key] === null || product.characteristic[key] === filters[key]
+        )
+      );
     },
+
     resetFilters: (state) => {
       state.filteredProducts = state.products;
     },

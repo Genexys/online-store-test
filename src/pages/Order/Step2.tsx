@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Card from '@/components/CreditCard';
 import { useForm, SubmitHandler } from 'react-hook-form';
-import { ORDER_STEP3_ROUTE } from '@/routePaths';
+import { ORDER_STEP3_ROUTE_LINK } from '@/routePaths';
 
 import styles from './order.module.css';
 
@@ -39,7 +39,7 @@ const Step2 = () => {
 
   const onSubmit: SubmitHandler<Inputs> = (data) => {
     console.log(data);
-    navigate(ORDER_STEP3_ROUTE);
+    navigate(ORDER_STEP3_ROUTE_LINK);
   };
 
   return (

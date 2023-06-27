@@ -3,4 +3,5 @@ export const CART_ROUTE = 'cart';
 export const ORDER_ROUTE = 'order';
 export const ORDER_STEP1_ROUTE = `step1`;
 export const ORDER_STEP2_ROUTE = `step2`;
-export const ORDER_STEP3_ROUTE = `/order/step3`;
+export const ORDER_STEP3_ROUTE = `step3`;
+export const ORDER_STEP3_ROUTE_LINK = `/order/step3`;

@@ -55,7 +55,7 @@ const Step3: React.FC = () => {
   if (!isLoaded) return 'Loading Maps';
 
   return (
-    <div>
+    <>
       <h2>Locate the Property</h2>
 
       <div className={styles.search}>
@@ -63,19 +63,19 @@ const Step3: React.FC = () => {
       </div>
 
       <input
+        readOnly
         type="text"
         className={styles.inputField}
         value={selectedAddress}
         placeholder="Selected Address"
-        readOnly
       />
 
       <input
+        readOnly
         type="text"
         className={styles.inputField}
         value={postalCode}
         placeholder="Postal Code"
-        readOnly
       />
 
       <div className={styles.map}>
@@ -113,7 +113,7 @@ const Step3: React.FC = () => {
       </div>
       <h2>Selected Address</h2>
       <p>{selectedAddress}</p>
-    </div>
+    </>
   );
 };
 

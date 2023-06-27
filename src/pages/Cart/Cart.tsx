@@ -63,10 +63,14 @@ const Cart: React.FC = () => {
             <h2 className={styles.totalTitle}>Cart total:</h2>
             <div className={styles.totalInner}>
               <p className={styles.totalPrice}>
-                Total: £{cartItems.reduce((acc, item) => acc + item.price * item.amount, 0)}
+                Total: $ {cartItems.reduce((acc, item) => acc + item.price * item.amount, 0)}
               </p>
             </div>
-            <button className={styles.checkoutButton} onClick={() => navigate('/order')}>
+            <button
+              type="button"
+              className={styles.checkoutButton}
+              onClick={() => navigate('/order')}
+            >
               Checkout
             </button>
           </div>

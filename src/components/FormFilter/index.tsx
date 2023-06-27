@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import type { Product } from '@/data';
 import { filterByCharacteristic, resetFilters } from '@/store/productsSlice';
 import { useDispatch } from 'react-redux';
@@ -10,8 +10,10 @@ type TProps = {
 };
 
 const FormFilter: React.FC<TProps> = ({ products }): JSX.Element => {
-  const [colorFilter, setColorFilter] = useState<string>('');
-  const [coolnessFilter, setCoolnessFilter] = useState<boolean>(false);
+  const [filters, setFilters] = useState<{ color: string | null; coolness: boolean | null }>({
+    color: null,
+    coolness: null,
+  });
   const dispatch = useDispatch();
 
   const colors = Array.from(
@@ -21,42 +23,48 @@ const FormFilter: React.FC<TProps> = ({ products }): JSX.Element => {
     new Set(products.map((product: Product) => product.characteristic.coolness))
   );
 
+  const resetFilter = (): void => {
+    dispatch(resetFilters());
+    setFilters({
+      color: null,
+      coolness: null,
+    });
+  };
+
+  useEffect(() => {
+    dispatch(filterByCharacteristic(filters));
+  }, [filters, dispatch]);
+
   const handleColorChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
-    setColorFilter(event.target.value);
-    dispatch(filterByCharacteristic({ characteristic: 'color', value: event.target.value }));
+    setFilters((prevFilters) => ({ ...prevFilters, color: event.target.value }));
   };
 
   const handleCoolnessChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
     const coolness = event.target.value === 'true';
-    setCoolnessFilter(coolness);
-    dispatch(filterByCharacteristic({ characteristic: 'coolness', value: coolness }));
-  };
-
-  const resetFilter = (): void => {
-    dispatch(resetFilters());
-    setCoolnessFilter(false);
-    setColorFilter('');
+    setFilters((prevFilters) => ({ ...prevFilters, coolness }));
   };
 
   return (
     <div>
-      <div>
+      <div className={styles.filterItem}>
         <h4 className={styles.title}>Color</h4>
-        {colors.map((color: string) => (
-          <div key={color}>
-            <input
-              type="radio"
-              id={color}
-              name="color"
-              value={color}
-              checked={colorFilter === color}
-              onChange={handleColorChange}
-            />
-            <label htmlFor={color}>{color}</label>
-          </div>
-        ))}
+        <fieldset>
+          {colors.map((color: string) => (
+            <div key={color}>
+              <input
+                type="radio"
+                id={color}
+                name="color"
+                value={color}
+                checked={filters.color === color}
+                onChange={handleColorChange}
+              />
+              <label htmlFor={color}>{color}</label>
+            </div>
+          ))}
+        </fieldset>
       </div>
-      <div>
+      <div className={styles.filterItem}>
         <h4 className={styles.title}>Coolness</h4>
         {coolnessLevels.map((level: boolean) => (
           <div key={`${level}`}>
@@ -65,7 +73,7 @@ const FormFilter: React.FC<TProps> = ({ products }): JSX.Element => {
               id={`${level}`}
               name="coolness"
               value={`${level}`}
-              checked={coolnessFilter === level}
+              checked={filters.coolness === level}
               onChange={handleCoolnessChange}
             />
             <label htmlFor={`${level}`}>{level ? 'Cool' : 'Not Cool'}</label>

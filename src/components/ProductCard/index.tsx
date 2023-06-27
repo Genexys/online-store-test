@@ -7,8 +7,8 @@ type TProps = {
   title: string;
   description: string;
   price: number;
-  currency?: string;
   amount: number;
+  currency?: string;
   increaseAmount: (id: number) => void;
   decreaseAmount: (id: number) => void;
   addToCart?: () => void;
@@ -50,7 +50,7 @@ const ProductCard: React.FC<TProps> = ({
             </button>
           </div>
         ) : (
-          <button className={styles.button} onClick={addToCart}>
+          <button type="button" className={styles.button} onClick={addToCart}>
             Add to cart
           </button>
         )}

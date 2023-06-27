@@ -18,6 +18,7 @@ const Quantity: React.FC<TProps> = ({ id, amount, increaseAmount, decreaseAmount
       <button
         id="minus_qty"
         className={`${styles.button} ${styles.minus}`}
+        type="button"
         onClick={() => decreaseAmount(id)}
       >
         -
@@ -45,6 +46,7 @@ const Quantity: React.FC<TProps> = ({ id, amount, increaseAmount, decreaseAmount
       <button
         id="plus_qty"
         className={`${styles.button} ${styles.plus}`}
+        type="button"
         onClick={() => increaseAmount(id)}
       >
         +

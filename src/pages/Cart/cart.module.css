@@ -24,9 +24,9 @@
 }
 
 .totalInner {
-  border: 1px solid var(--border-color);
   margin-bottom: 2em;
   padding: 0 20px;
+  border: 1px solid var(--border-color);
 }
 
 .totalPrice {
@@ -47,4 +47,18 @@
 
 .checkoutButton:hover {
   opacity: 0.8;
+}
+
+@media screen and (max-width: 922px) {
+  .wrapper {
+    flex-direction: column;
+  }
+
+  .list {
+    width: 100%;
+  }
+
+  .total {
+    width: 100%;
+  }
 }

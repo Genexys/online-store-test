@@ -4,8 +4,8 @@
 }
 
 .button {
-  margin-top: 20px;
   width: 100px;
+  margin-top: 20px;
   padding: 10px;
   border: 1px solid var(--border-color);
   border-radius: 5px;

@@ -48,19 +48,17 @@ const CartItem: React.FC<TProps> = ({
         <img src={src} alt={title} />
       </td>
 
-      <td className="product-name" data-title="Product">
-        <div className="ast-product-image ast-disable-image">
-          <div className="ast-product-name">{title}</div>
-        </div>
+      <td className={`${styles.hasTitle}`} data-title="Product">
+        {title}
       </td>
 
-      <td className="product-price" data-title="Price">
+      <td className={`${styles.hasTitle}`} data-title="Price">
         <span className={styles.amount}>
           <span className={styles.currency}>{currency}</span> {price}
-        </span>{' '}
+        </span>
       </td>
 
-      <td className="product-quantity" data-title="Quantity">
+      <td className={`${styles.hasTitle}`} data-title="Quantity">
         <div className={styles.quantity}>
           <Quantity
             id={id}
@@ -71,10 +69,10 @@ const CartItem: React.FC<TProps> = ({
         </div>
       </td>
 
-      <td className={styles.subtotal} data-title="Subtotal">
+      <td className={`${styles.hasTitle} ${styles.subtotal}`} data-title="Subtotal">
         <span className={styles.amount}>
           <span className={styles.currency}>{currency}</span> {price * amount}
-        </span>{' '}
+        </span>
       </td>
     </tr>
   );

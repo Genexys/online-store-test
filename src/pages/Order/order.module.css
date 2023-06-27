@@ -58,10 +58,10 @@
 }
 
 .errorMsg {
-  color: #f44336;
   margin-top: -17px;
   margin-bottom: 10px;
   font-size: 14px;
+  color: #f44336;
 }
 
 .map {
