@@ -8,7 +8,16 @@
 ### React test task
 
 ## Descrption
-### Test online store
+### Project use 
+
+* React
+* Redux
+* react-router-dom
+* react-hook-form
+* react-select
+* local-storage
+* google map api
+* webpack
 
 ## To get started, you must have:
 * Node.js latest version
