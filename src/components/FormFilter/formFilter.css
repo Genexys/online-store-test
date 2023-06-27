@@ -1,6 +1,14 @@
 .title {
+  margin-top: 0;
+  margin-bottom: 10px;
   font-family: 'Poppins', sans-serif;
   border-bottom: 1px solid var(--border-color);
+}
+
+.fieldset {
+  margin-bottom: 20px;
+  padding: 0;
+  border: none;
 }
 
 .button {

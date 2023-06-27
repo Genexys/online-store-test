@@ -48,7 +48,7 @@ const FormFilter: React.FC<TProps> = ({ products }): JSX.Element => {
     <div>
       <div className={styles.filterItem}>
         <h4 className={styles.title}>Color</h4>
-        <fieldset>
+        <fieldset className={styles.fieldset}>
           {colors.map((color: string) => (
             <div key={color}>
               <input
@@ -66,24 +66,26 @@ const FormFilter: React.FC<TProps> = ({ products }): JSX.Element => {
       </div>
       <div className={styles.filterItem}>
         <h4 className={styles.title}>Coolness</h4>
-        {coolnessLevels.map((level: boolean) => (
-          <div key={`${level}`}>
-            <input
-              type="radio"
-              id={`${level}`}
-              name="coolness"
-              value={`${level}`}
-              checked={filters.coolness === level}
-              onChange={handleCoolnessChange}
-            />
-            <label htmlFor={`${level}`}>{level ? 'Cool' : 'Not Cool'}</label>
-          </div>
-        ))}
-
-        <button className={styles.button} onClick={() => resetFilter()}>
-          reset
-        </button>
+        <fieldset className={styles.fieldset}>
+          {coolnessLevels.map((level: boolean) => (
+            <div key={`${level}`}>
+              <input
+                type="radio"
+                id={`${level}`}
+                name="coolness"
+                value={`${level}`}
+                checked={filters.coolness === level}
+                onChange={handleCoolnessChange}
+              />
+              <label htmlFor={`${level}`}>{level ? 'Cool' : 'Not Cool'}</label>
+            </div>
+          ))}
+        </fieldset>
       </div>
+
+      <button className={styles.button} onClick={() => resetFilter()}>
+        reset
+      </button>
     </div>
   );
 };

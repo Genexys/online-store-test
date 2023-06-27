@@ -8,7 +8,7 @@ type TProps = {
 const Menu: React.FC<TProps> = ({ children }) => {
   return (
     <nav className={styles.menu}>
-      <ul>{children}</ul>
+      <ul className={styles.list}>{children}</ul>
     </nav>
   );
 };
