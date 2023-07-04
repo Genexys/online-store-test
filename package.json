@@ -8,6 +8,7 @@
     "server": "nodemon ./server/index.js",
     "start": "npm run dev & npm run server",
     "build": "webpack --mode production",
+    "deploy": "npx vercel deploy",
     "createcomponent": "node utils/component.js --name",
     "prepare": "husky install",
     "lint": "eslint 'src/**/*.{js,ts,tsx}' --quiet --fix",
