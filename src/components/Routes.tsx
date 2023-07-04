@@ -1,4 +1,5 @@
 import React from 'react';
+import { useAuth0 } from '@auth0/auth0-react';
 import { Route, Routes } from 'react-router-dom';
 import {
   HOME_ROUTE,
@@ -17,6 +18,16 @@ import Step3 from '@/pages/Order/Step3';
 import Error from '@/pages/Error/Error';
 
 const RoutesApp: React.FC = () => {
+  const { isLoading } = useAuth0();
+
+  if (isLoading) {
+    return (
+      <div className="page-layout">
+        <div> Loading ... </div>
+      </div>
+    );
+  }
+
   return (
     <Routes>
       <Route path={HOME_ROUTE} element={<Main />}>
