@@ -6,6 +6,7 @@ import Logo from '../Logo';
 import logo from '../../../assets/images/logo-color.svg';
 import Layout from '../Layout';
 import Cart from '../CartButton';
+import ButtonActionsLogin from '../../containers/ButtonActionsLogin';
 
 import { HOME_ROUTE } from '@/routePaths';
 
@@ -17,12 +18,18 @@ const Header: React.FC = ({}) => {
           <div className={styles.logo}>
             <Logo src={logo} title="logo" width={150} height={150} />
           </div>
-          <Menu>
-            <MenuItem path={HOME_ROUTE}>Home</MenuItem>
-          </Menu>
+          <div className={styles.menu}>
+            <Menu>
+              <MenuItem path={HOME_ROUTE}>Home</MenuItem>
+            </Menu>
+          </div>
 
-          <div className={styles.cart}>
+          <div className={styles.actions}>
             <Cart />
+
+            <div className={styles.loginActions}>
+              <ButtonActionsLogin />
+            </div>
           </div>
         </div>
       </Layout>

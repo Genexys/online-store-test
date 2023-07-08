@@ -20,35 +20,36 @@ const snakeCase = (s) => {
 const componentName = args.name;
 const className = snakeCase(componentName).substring(1);
 
-fs.mkdirSync(path.resolve(__dirname, '..', 'src', 'components', componentName));
+fs.mkdirSync(path.resolve(__dirname, '..', 'components', componentName));
 
 const componentCode = `import React from 'react';
-import './${componentName.toLowerCase()}.module.css';
+import styles from './${componentName.toLowerCase()}.module.css';
 
 type TProps = {};
 
-
 const ${componentName}: React.FC<TProps> = (props) => {
 
-  return <div className={styles.${className} />;
+  return <div className={styles.${className}}/>;
 };
 
-export default ${componentName};
-`;
+export default ${componentName};`;
 
-const styleCode = `
-
-.${className} {
+const styleCode = `.${className} {
   $self: &;
-}
-`;
+}`;
 
 fs.writeFileSync(
-  path.resolve(__dirname, '..', 'src', 'components', componentName, 'index.tsx'),
+  path.resolve(__dirname, '..', 'components', componentName, 'index.tsx'),
   componentCode
 );
 
 fs.writeFileSync(
-  path.resolve(__dirname, '..', 'src', 'components', componentName, 'style.css'),
+  path.resolve(
+    __dirname,
+    '..',
+    'components',
+    componentName,
+    componentName.toLowerCase() + '.module.css'
+  ),
   styleCode
 );

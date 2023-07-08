@@ -12,8 +12,13 @@
   margin-right: 40px;
 }
 
-.cart {
-  margin-left: auto;
+.menu {
+  flex-grow: 1;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
 }
 
 @media screen and (max-width: 450px) {
