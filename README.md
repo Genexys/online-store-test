@@ -34,6 +34,6 @@
 In the project directory, you can run:
 
 - ### for install `npm install`
-- ## for run fontend `npm run dev`
-- ## for run server `npm run server`
+- ### for run fontend `npm run dev`
+- ### for run server `npm run server`
 - ### for run frontend end server `npm start`
